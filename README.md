@@ -17,4 +17,4 @@ https://github.com/linhua55/rinetd
 
 refer to https://github.com/linhua55/rinetd/blob/lkl_raw/make.sh
 
-replace `/home/vagrant/lkl/linux/tools/lkl/liblkl.a ` and `/home/vagrant/lkl/linux/tools/lkl/include` with your path.
+replace `/home/vagrant/lkl/linux/tools/lkl/liblkl.a ` and `/home/vagrant/lkl/linux/tools/lkl/include` with your actual LKL path.
