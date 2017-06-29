@@ -18,3 +18,38 @@ https://github.com/linhua55/rinetd
 refer to https://github.com/linhua55/rinetd/blob/lkl_raw/make.sh
 
 replace `/home/vagrant/lkl/linux/tools/lkl/liblkl.a ` and `/home/vagrant/lkl/linux/tools/lkl/include` with your actual LKL path.
+
+
+### Release
+lkl版 增强版bbr
+
+https://drive.google.com/open?id=0B0D0hDHteoksbXY1SmNJSm9KUlk
+
+or
+
+wget "https://drive.google.com/uc?id=0B0D0hDHteoksVW5CemJKZVcyN1E" -O /usr/bin/rinetd
+
+lkl版 普通bbr
+
+https://drive.google.com/open?id=0B0D0hDHteoksZWlQQmp3enBqbTg
+
+or
+
+wget “https://drive.google.com/uc?id=0B0D0hDHteokscTg3aEtqemJGQUE” -O /usr/bin/rinetd
+
+lkl版 PCC协议
+
+https://drive.google.com/open?id=0B0D0hDHteoksdW53VjNYZmFFVzg
+
+or
+
+wget “https://drive.google.com/uc?id=0B0D0hDHteoksdkZPcEE2Vzc0YWc” -O /usr/bin/rinetd
+
+用法可参考：
+
+https://gist.github.com/codexss/1d5a834c479bb1532b9f82b23ee2f3fa
+
+https://github.com/mixool/rinetd
+
+https://www.v2ex.com/t/353778#r_4311799
+
