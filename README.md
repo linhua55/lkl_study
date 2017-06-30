@@ -59,3 +59,5 @@ https://www.v2ex.com/t/353778#r_4311799
 
 kvm 要 改 venet0:0 为 kvm 的公网ip对应的网卡设备，一般是 eth0
 
+###Some technical details
+https://linhua55.github.io/2017/04/24/LKL(Linux%20Kernel%20Library)/
