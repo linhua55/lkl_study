@@ -46,7 +46,6 @@ https://www.v2ex.com/t/353778#r_4311799
 
 1. 依赖 iptables, grep, cut, xargs 。 一般linux系统都自带这些工具，不过有的系统用的是firewalld（不是iptables）, 需要安装iptables。
 2. kvm 要 改 venet0:0 为 kvm 的公网ip对应的网卡设备，一般是 eth0
-3. 尽量先运行SSR等服务，再运行此软件，防止可能的iptables规则冲突
 
 ### Some technical details
 https://linhua55.github.io/2017/04/24/LKL(Linux%20Kernel%20Library)/
