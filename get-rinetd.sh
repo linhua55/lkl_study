@@ -9,7 +9,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-for CMD in curl iptables grep cut xargs systemctl
+for CMD in curl iptables grep cut xargs systemctl ip awk
 do
 	if ! type -p ${CMD}; then
 		echo -e "\e[1;31mtool ${CMD} is not installed, abort.\e[0m"
@@ -28,6 +28,7 @@ cat <<EOF > /etc/rinetd-bbr.conf
 0.0.0.0 80 0.0.0.0 80
 EOF
 
+IFACE=$(ip -4 addr | awk '{if ($1 ~ /inet/ && $NF ~ /^[ve]/) {a=$NF}} END{print a}')
 echo "3. Generate /etc/systemd/system/rinetd-bbr.service"
 cat <<EOF > /etc/systemd/system/rinetd-bbr.service
 [Unit]
@@ -35,7 +36,7 @@ Description=rinetd with bbr
 Documentation=https://github.com/linhua55/lkl_study
 
 [Service]
-ExecStart=/usr/bin/rinetd-bbr -f -c /etc/rinetd-bbr.conf raw venet0:0
+ExecStart=/usr/bin/rinetd-bbr -f -c /etc/rinetd-bbr.conf raw ${IFACE}
 Restart=always
 
 [Install]
@@ -53,3 +54,4 @@ if systemctl status rinetd-bbr >/dev/null; then
 else
 	echo "rinetd-bbr failed."
 fi
+
