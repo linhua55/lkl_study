@@ -1,7 +1,7 @@
 # lkl_study
 study the LKL(linux kernel library)   https://github.com/lkl/linux
 
-适用于64位linux系统
+仅适用于64位linux系统,ipv4网络
 
 ## Rinetd version(with LKL and raw socket backend)
 ### Compile
