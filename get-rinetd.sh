@@ -2,7 +2,7 @@
 # Usage:
 #   curl https://raw.githubusercontent.com/linhua55/lkl_study/master/get-rinetd.sh | bash
 
-export RINET_URL="https://drive.google.com/uc?id=0B0D0hDHteoksVW5CemJKZVcyN1E"
+export RINET_URL="https://github.com/linhua55/lkl_study/releases/download/v1.1/rinetd_bbr_powered"
 
 if [ "$(id -u)" != "0" ]; then
     echo "ERROR: Please run as root"
