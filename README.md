@@ -50,6 +50,8 @@ https://www.v2ex.com/t/353778#r_4311799
 使用方法：
 
       curl https://raw.githubusercontent.com/linhua55/lkl_study/master/get-rinetd.sh | bash
+      
+一键脚本生成的配置文件路径是`/etc/rinetd-bbr.conf`, 默认加速`443`和`80`端口，请根据需要更改端口号
 
 ### 注意：
 
