@@ -1,6 +1,7 @@
 # lkl_study
 study the LKL(linux kernel library)   https://github.com/lkl/linux
 
+适用于64位linux系统
 
 ## Rinetd version(with LKL and raw socket backend)
 ### Compile
@@ -41,6 +42,14 @@ https://gist.github.com/codexss/1d5a834c479bb1532b9f82b23ee2f3fa
 https://github.com/mixool/rinetd
 
 https://www.v2ex.com/t/353778#r_4311799
+
+### 一键脚本
+
+感谢 @phuslu 提供的一键脚本
+
+使用方法：
+
+      curl https://raw.githubusercontent.com/linhua55/lkl_study/master/get-rinetd.sh | bash
 
 ### 注意：
 
