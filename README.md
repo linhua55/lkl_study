@@ -35,7 +35,7 @@ lkl版 普通bbr
 
 lkl版 PCC 拥塞控制协议
 
-    wget "https://github.com/linhua55/lkl_study/releases/download/v1.2/rinetd_pcc" -O /usr/bin/rinetd
+    wget "https://github.com/linhua55/lkl_study/releases/download/v1.2/rinetd_pcc" -O /usr/bin/rinetd
 
 用法可参考：
 
