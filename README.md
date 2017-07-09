@@ -27,15 +27,15 @@ replace `/home/vagrant/lkl/linux/tools/lkl/liblkl.a ` and `/home/vagrant/lkl/lin
 
 lkl版 增强版bbr
 
-    wget "https://github.com/linhua55/lkl_study/releases/download/v1.1/rinetd_bbr_powered" -O /usr/bin/rinetd
+    wget "https://github.com/linhua55/lkl_study/releases/download/v1.2/rinetd_bbr_powered" -O /usr/bin/rinetd
 
 lkl版 普通bbr
 
-    wget “https://github.com/linhua55/lkl_study/releases/download/v1.1/rinetd_bbr” -O /usr/bin/rinetd
+    wget “https://github.com/linhua55/lkl_study/releases/download/v1.2/rinetd_bbr” -O /usr/bin/rinetd
 
 lkl版 PCC 拥塞控制协议
 
-    wget “https://github.com/linhua55/lkl_study/releases/download/v1.1/rinetd_PCC” -O /usr/bin/rinetd
+    wget “https://github.com/linhua55/lkl_study/releases/download/v1.2/rinetd_pcc” -O /usr/bin/rinetd
 
 用法可参考：
 
