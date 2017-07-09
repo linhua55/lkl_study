@@ -55,6 +55,10 @@ https://www.v2ex.com/t/353778#r_4311799
       
 一键脚本生成的配置文件路径是`/etc/rinetd-bbr.conf`, 默认加速`443`和`80`端口，请根据需要更改端口号
 
+### 查看是否起作用
+
+使用 top 命令， 查看 rinetd 程序的 CPU 占用率，速度越快，CPU占用率越高
+
 ### 注意：
 
 1. 依赖 iptables, grep, cut, xargs 。 一般linux系统都自带这些工具，不过有的系统用的是firewalld（不是iptables）, 需要安装iptables。
