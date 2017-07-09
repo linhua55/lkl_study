@@ -12,6 +12,8 @@ https://github.com/linhua55/linux/tree/rinetd_bpf
 
 refer to https://github.com/lkl/linux
 
+Linux(LKL)的内核配置文件为本仓库里的 .config 文件, 需要放在LKL仓库的根目录下
+
 2. compile rinetd(with lkl)
 
 https://github.com/linhua55/rinetd
