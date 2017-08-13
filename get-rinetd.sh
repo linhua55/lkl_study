@@ -38,6 +38,7 @@ Documentation=https://github.com/linhua55/lkl_study
 [Service]
 ExecStart=/usr/bin/rinetd-bbr -f -c /etc/rinetd-bbr.conf raw ${IFACE}
 Restart=always
+User=root
 
 [Install]
 WantedBy=multi-user.target
