@@ -20,7 +20,7 @@ done
 
 echo -e "1. Clean up rinetd-bbr"
 systemctl disable rinetd-bbr.service
-killall -9 rinetd
+killall -9 rinetd-bbr
 rm -rf /usr/bin/rinetd-bbr  /etc/rinetd-bbr.conf /etc/systemd/system/rinetd-bbr.service
 
 echo "2. Download rinetd-bbr from $RINET_URL"
@@ -61,6 +61,9 @@ systemctl start rinetd-bbr.service
 
 if systemctl status rinetd-bbr >/dev/null; then
 	echo "rinetd-bbr started."
+	echo "$PORTS speed up completed."
+	echo "vi /etc/rinetd-bbr.conf as needed."
+	echo "killall -9 rinetd-bbr for restart."
 else
 	echo "rinetd-bbr failed."
 fi
