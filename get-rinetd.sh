@@ -67,4 +67,3 @@ if systemctl status rinetd-bbr >/dev/null; then
 else
 	echo "rinetd-bbr failed."
 fi
-
