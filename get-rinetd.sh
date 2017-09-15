@@ -18,19 +18,27 @@ do
 	fi
 done
 
-echo "1. Download rinetd-bbr from $RINET_URL"
+echo -e "1. Clean up rinetd-bbr"
+systemctl disable rinetd-bbr.service
+killall -9 rinetd
+rm -rf /usr/bin/rinetd-bbr  /etc/rinetd-bbr.conf /etc/systemd/system/rinetd-bbr.service
+
+echo "2. Download rinetd-bbr from $RINET_URL"
 curl -L "${RINET_URL}" >/usr/bin/rinetd-bbr
 chmod +x /usr/bin/rinetd-bbr
 
-echo "2. Generate /etc/rinetd-bbr.conf"
-cat <<EOF > /etc/rinetd-bbr.conf
-# bindadress bindport connectaddress connectport
-0.0.0.0 443 0.0.0.0 443
-0.0.0.0 80 0.0.0.0 80
+echo "3. Generate /etc/rinetd-bbr.conf"
+read -p "Input ports you want to speed up: " PORTS </dev/tty
+for d in $PORTS
+do          
+cat <<EOF >> /etc/rinetd-bbr.conf
+0.0.0.0 $d 0.0.0.0 $d 
 EOF
+done 
 
 IFACE=$(ip -4 addr | awk '{if ($1 ~ /inet/ && $NF ~ /^[ve]/) {a=$NF}} END{print a}')
-echo "3. Generate /etc/systemd/system/rinetd-bbr.service"
+
+echo "4. Generate /etc/systemd/system/rinetd-bbr.service"
 cat <<EOF > /etc/systemd/system/rinetd-bbr.service
 [Unit]
 Description=rinetd with bbr
