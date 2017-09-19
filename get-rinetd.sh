@@ -38,16 +38,14 @@ cat <<EOF >> /etc/rinetd-bbr.conf
 EOF
 done 
 
-TWO=$(seq ${PORT[0]} ${PORT[1]})
-for b in $TWO
+for b in $(seq ${PORT[0]} ${PORT[1]})
 do          
 cat <<EOF >> /etc/rinetd-bbr.conf
 0.0.0.0 $b 0.0.0.0 $b
 EOF
 done 
 
-OWT=$(seq ${PORT[1]} ${PORT[0]})
-for c in $OWT
+for c in $(seq ${PORT[1]} ${PORT[0]})
 do          
 cat <<EOF >> /etc/rinetd-bbr.conf
 0.0.0.0 $c 0.0.0.0 $c
@@ -81,6 +79,7 @@ systemctl start rinetd-bbr.service
 
 if systemctl status rinetd-bbr >/dev/null; then
 	echo "rinetd-bbr started."
+	echo "run this script again if you want to add more ports."
 	echo "vi /etc/rinetd-bbr.conf as needed."
 	echo "killall -9 rinetd-bbr for restart."
 else
