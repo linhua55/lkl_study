@@ -21,20 +21,40 @@ done
 echo -e "1. Clean up rinetd-bbr"
 systemctl disable rinetd-bbr.service
 killall -9 rinetd-bbr
-rm -rf /usr/bin/rinetd-bbr  /etc/rinetd-bbr.conf /etc/systemd/system/rinetd-bbr.service
+rm -rf /usr/bin/rinetd-bbr /etc/systemd/system/rinetd-bbr.service
 
 echo "2. Download rinetd-bbr from $RINET_URL"
 curl -L "${RINET_URL}" >/usr/bin/rinetd-bbr
 chmod +x /usr/bin/rinetd-bbr
 
 echo "3. Generate /etc/rinetd-bbr.conf"
-read -p "Input ports you want to speed up: " PORTS </dev/tty
-for d in $PORTS
+read -p "Input ports [1-65535] you want to speed up: " PORTS </dev/tty
+read -p "Input two ports [1-65535] and will speed up all the ports between them: " -a PORT </dev/tty
+
+for a in $PORTS
 do          
 cat <<EOF >> /etc/rinetd-bbr.conf
-0.0.0.0 $d 0.0.0.0 $d 
+0.0.0.0 $a 0.0.0.0 $a
 EOF
 done 
+
+TWO=$(seq ${PORT[0]} ${PORT[1]})
+for b in $TWO
+do          
+cat <<EOF >> /etc/rinetd-bbr.conf
+0.0.0.0 $b 0.0.0.0 $b
+EOF
+done 
+
+OWT=$(seq ${PORT[1]} ${PORT[0]})
+for c in $OWT
+do          
+cat <<EOF >> /etc/rinetd-bbr.conf
+0.0.0.0 $c 0.0.0.0 $c
+EOF
+done 
+
+sort -u -n -k 2 /etc/rinetd-bbr.conf -o /etc/rinetd-bbr.conf
 
 IFACE=$(ip -4 addr | awk '{if ($1 ~ /inet/ && $NF ~ /^[ve]/) {a=$NF}} END{print a}')
 
@@ -61,7 +81,6 @@ systemctl start rinetd-bbr.service
 
 if systemctl status rinetd-bbr >/dev/null; then
 	echo "rinetd-bbr started."
-	echo "$PORTS speed up completed."
 	echo "vi /etc/rinetd-bbr.conf as needed."
 	echo "killall -9 rinetd-bbr for restart."
 else
